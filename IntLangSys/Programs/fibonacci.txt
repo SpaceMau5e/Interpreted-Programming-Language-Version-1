@@ -1,0 +1,18 @@
+getinput int Insert the number of passes you want:  holdVal
+
+Assign int 0 val1
+Assign int 1 val2
+
+procedure fibCalc
+	dup val2 tempval2
+	add val1 val2 int val2
+	dup tempval2 val1
+	print val2
+endproc fibCalc1
+
+print val1
+print val2
+
+loopstart holdVal
+	call fibCalc
+loopend

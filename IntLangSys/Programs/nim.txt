@@ -1,0 +1,54 @@
+assign int 16 amountRem
+assign string The number of peices left is:  conMsg
+assign bool True playerTurn
+assign int 0 amountTaken
+assign string Please only take 1, 2 or 3 peices at a time. badInput
+
+procedure maths
+	subtract amountRem amountTaken int amountRem
+	if amountRem <= 0
+		if playerTurn == True
+			assign string ==The Player Wins== winMsg
+		else
+			assign string ==The Computer Wins== winMsg
+		continue
+		print winMsg
+		break
+	continue
+EndProc maths
+
+procedure computer
+	assign bool False playerTurn
+	mod amountRem 4 int amountTaken
+	call maths
+endProc computer
+
+procedure playerInput
+	assign bool True playerTurn
+	getinput int How many peices do you want to take? amountTaken
+	if not amountTaken < 1
+		if not amountTaken > 3
+			call maths
+		else
+			print badInput
+			call playerInput
+		continue
+	else
+		print badInput
+		call playerInput
+	continue
+endProc playerInput
+
+procedure addMsg
+	dup amountRem tmpCon
+	convert tmpCon string
+	add conMsg tmpCon string numMsg
+	delete tmpCon
+	print numMsg
+endProc addMsg
+
+loopstart
+	call addMsg
+	call playerInput
+	call computer
+loopend

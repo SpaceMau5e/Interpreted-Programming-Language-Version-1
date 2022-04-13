@@ -1,0 +1,10 @@
+assign int 1 outVal
+
+getinput int Please input n: facN
+
+loopstart facN
+	multiply outVal facN int outVal
+	subtract facN 1 int facN
+loopend
+
+print outVal

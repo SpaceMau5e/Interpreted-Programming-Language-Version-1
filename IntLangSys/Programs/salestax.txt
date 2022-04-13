@@ -1,0 +1,56 @@
+lassign string Items itemlist
+lassign string Price pricelist
+assign int 1 indexPos
+assign float 0 outVal
+assign string Items   |  Prices header
+assign string    |   $ format
+assign string You total is: $ outString
+
+procedure sumAll
+	length pricelist tempCon
+	subtract tempCon 1 int tempCon
+	loopstart tempCon
+		index pricelist indexPos tempVal
+		convert tempVal float
+		add outVal tempVal float outVal
+		delete tempVal
+		add indexPos 1 int indexPos
+	loopend
+	multiply outVal 0.06 float tempVal
+	add outVal tempVal float outVal
+	convert outVal string
+	delete tempCon
+	delete tempVal
+endproc sumAll
+
+procedure printAll
+	length pricelist tempCon
+	subtract tempCon 1 int tempCon
+	assign int 1 indexPos
+	print header
+	loopstart tempCon
+		index pricelist indexPos tempPrice
+		index itemlist indexPos tempName
+		add tempName format tempPrice string outMsg
+		print outMsg
+		delete outMsg
+		add indexPos 1 int indexPos
+	loopend
+	add outString outVal string outMsg
+	print outMsg
+	delete tempPrice
+	delete tempName
+	delete tempCon
+endproc printAll
+
+loopstart
+	getinput string Please enter the item's name (Or enter stop): itemName
+	if itemName == stop
+		call sumAll
+		call printAll
+		break
+	continue
+	getinput string Please enter the item's price: itemPrice
+	append itemlist itemName
+	append pricelist itemPrice
+loopend

@@ -1,0 +1,18 @@
+lassign string empty inList
+assign string -1 checkSum
+assign string Your item is located at index  format
+
+loopstart
+	getinput string Please enter the item(Enter -1 to start search):  userVal
+	if userVal == checkSum
+		getinput string Please enter the item you want to find:  userSearch
+		search inList userSearch tempCon
+		dup tempCon tempString
+		convert tempString string
+		add format tempString string tempString
+		print tempString
+		break
+	else
+		append inList userVal
+	continue
+loopend

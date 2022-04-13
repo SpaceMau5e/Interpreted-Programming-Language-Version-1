@@ -1,0 +1,8 @@
+Autorun
+	Assign int 10 X
+	LAssign float 12.0 5.0 6.1 Y
+Endrun
+
+Procedure killSwitch
+	Add X 3 int K
+EndProc killSwitch

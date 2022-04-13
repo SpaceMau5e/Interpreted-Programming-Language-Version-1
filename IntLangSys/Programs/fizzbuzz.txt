@@ -1,0 +1,48 @@
+assign string fizz fizz
+assign string buzz buzz
+assign string fizzbuzz fizzbuzz
+
+getinput int Enter the max value for fizzbuzz: loopLength
+assign int 1 currentVal
+
+procedure highball
+	mod currentVal 15 int tempCon
+	if tempCon == 0
+		print fizzbuzz
+		assign bool true trigger
+	continue
+	delete tempCon
+endproc highball
+
+procedure midball
+	mod currentVal 5 int tempCon
+	if tempCon == 0
+		print buzz
+		assign bool true trigger
+	continue
+	delete tempCon
+endproc midball
+
+procedure lowball
+	mod currentVal 3 int tempCon
+	if tempCon == 0
+		print fizz
+		assign bool true trigger
+	continue
+	delete tempCon
+endproc lowball
+
+loopstart loopLength
+	call highball
+	if not trigger == true
+		call midball
+		if not trigger == true
+			call lowball
+			if not trigger == true
+				print currentVal
+			continue
+		continue
+	continue
+	assign bool false trigger
+	add currentVal 1 int currentVal
+loopend

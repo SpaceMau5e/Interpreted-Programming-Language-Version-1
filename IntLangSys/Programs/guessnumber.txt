@@ -1,0 +1,66 @@
+Assign string Please think of a whole number between 1 and 100 promptMSG
+Assign string Is the number:  guessMSG
+Assign string It took the computer  textP1
+Assign string  guesses. textP2
+
+Assign int 100 currentMax
+Assign int 1 currentMin
+Assign int 50 currentGuess
+Assign int 0 numberGuesses
+
+procedure highsubGuess
+	add currentGuess currentMax int tempVal
+	divide tempVal 2 int currentGuess
+	dup currentGuess tempString
+	convert tempString string
+	add guessMSG tempString string tempString
+	print tempString
+	delete tempString
+	delete tempVal
+endproc highsubGuess
+
+procedure lowsubGuess
+	add currentGuess currentMin int tempVal
+	divide tempVal 2 int currentGuess
+	dup currentGuess tempString
+	convert tempString string
+	add guessMSG tempString string tempString
+	print tempString
+	delete tempString
+	delete tempVal
+endproc lowsubGuess
+
+procedure firstGuess
+	print promptMSG
+	dup currentGuess tempString
+	convert tempString string
+	add guessMSG tempString string tempString
+	print tempString
+	delete tempString
+	add numberGuesses 1 int numberGuesses
+endproc firstGuess
+
+procedure guessCount
+	dup numberGuesses tempVal
+	convert tempVal string
+	add textP1 tempVal textP2 string tempString
+	print tempString
+	delete tempString
+	delete tempVal
+endproc guessCount
+
+call firstGuess
+loopstart
+	getinput string Higher or Lower or Yes? returnedVal
+	if returnedVal == Higher
+		dup currentGuess currentMin
+		call highsubGuess
+	elseif returnedVal == Lower
+		dup currentGuess currentMax
+		call lowsubGuess
+	else
+		break
+	continue
+	add numberGuesses 1 int numberGuesses
+loopend
+call guessCount

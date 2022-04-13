@@ -1,0 +1,12 @@
+assign string Your Miles Per Gallon is:  outMSG
+
+getinput float Please enter the number of miles traveled: numMiles
+getinput float Please enter the number of gallons used: numGallons
+
+divide numMiles numGallons float numMPG
+
+dup numMPG tempCon
+convert tempCon string
+
+add outMSG tempCon string outMSG
+print outMSG
