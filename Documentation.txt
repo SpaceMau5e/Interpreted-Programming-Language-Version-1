@@ -1,0 +1,61 @@
+--Variables:
+Assign 	  type value variable(out)
+Dup	  variable variable(out)
+Convert	  variable type True(for spliting strings on words not chars)
+Delete	  variable
+ X Type	  variable variable(out)
+
+--Maths:
+Add	  value/variable value/variable... type variable
+Subtract  ||
+Multiply  ||
+Divide	  ||
+Mod	  ||
+
+--Loops:
+LoopStart length  ( X (optinal, empty = infinite))
+LoopEnd
+Break (Ends contained loop)
+For -- -- -- (WIP)
+
+--Strings: (WIP)
+
+--Input / Outputs:
+GetInput type message(optional) variable
+Print variable
+
+--Functions:
+Call	  'Proc Name'
+Procedure 'Name'
+EndProc	  'Name'
+
+--IfElse:
+If	Not(optional) variable comparisonSym variable
+ElseIf  ||
+Else
+Continue
+
+--Files:
+Attach FileName
+WriteTo FileName LineNumber(optional, default empties files) variable   NOTE: This will write over the line
+AppendTo FileName variable
+RemoveFrom FileName LineNumber
+ReadFrom FileName LineNumber(optional, 'all' keyword for all lines) variable(output)
+
+--Libs:
+Autorun
+Endrun
+
+--Self:
+Save
+Reload True/False(save memory)
+Run FileName(must be Var)
+
+--Lists:
+LAssign	type(contents) elements variable
+Index	variable(list) position(int) variable(output)
+Length	variable(list) variable(output)
+Remove	variable(list) position(int)
+Insert	variable(list) value/variable position(int)
+Append	variable(list) value/variable
+Search  variable(list) value/variable variable(outputs index of first)
